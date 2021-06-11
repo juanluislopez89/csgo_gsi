@@ -1,0 +1,5 @@
+{
+    "board": "arduino:avr:leonardo",
+    "sketch": "Arduino\\CSGO_GSI\\CSGO_GSI.ino",
+    "port": "COM5"
+}
