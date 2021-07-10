@@ -138,31 +138,19 @@ void setup() {
     FastLED.addLeds<NEOPIXEL, HEALTH_NEOPIXEL_STRIP_PIN>(HEALTH_NEOPIXEL_STRIP, HEALTH_NEOPIXEL_STRIP_LED_COUNT);
     FastLED.addLeds<NEOPIXEL, BOMB_NEOPIXEL_STRIP_PIN>(BOMB_NEOPIXEL_STRIP, BOMB_NEOPIXEL_STRIP_LED_COUNT);
     FastLED.addLeds<NEOPIXEL, AMMO_NEOPIXEL_STRIP_PIN>(AMMO_NEOPIXEL_STRIP, AMMO_NEOPIXEL_STRIP_LED_COUNT);
+    FastLED.addLeds<NEOPIXEL, ARMOR_NEOPIXEL_STRIP_PIN>(ARMOR_NEOPIXEL_STRIP, ARMOR_NEOPIXEL_STRIP_LED_COUNT);
+    FastLED.addLeds<NEOPIXEL, ROUND_PERCENT_SCORE_NEOPIXEL_STRIP_PIN>(ROUND_PERCENT_SCORE_NEOPIXEL_STRIP, ROUND_PERCENT_SCORE_NEOPIXEL_STRIP_LED_COUNT);
 
-
-    display1.setBrightness(0x0f);
-    display2.setBrightness(0x0f);
-    display3.setBrightness(0x0f);
-    display4.setBrightness(0x0f);
-    display5.setBrightness(0x0f);
-    display6.setBrightness(0x0f);
-  
     bomb_status = BOMB_STATUS_NOT_PLANTED;
 }
 
 void loop() {
     readSerialData();
     handle_bomb(); 
+    
     bomb_blink();
-    display_bomb_timer(display1);
-    display_map_round(display2);
-    
-    display_player_state_health(display3);
     display_player_state_health_rgb();
-    
-    display_weapon_ammo_clip(display4);
+    display_player_state_armor_rgb();
     display_weapon_ammo_clip_rgb();
-    
-    display_player_match_stats_kills(display5);
-    display_player_match_stats_score(display6);
+    display_round_percent_score();
 }

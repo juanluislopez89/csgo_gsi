@@ -1,28 +1,13 @@
 //https://github.com/FastLED/FastLED
 #include <FastLED.h>
 //https://github.com/ArduinoGetStarted/output
-//#include <ezOutput.h>
-//https://github.com/avishorp/TM1637
-#include <TM1637Display.h>
-//https://github.com/adafruit/Adafruit_NeoPixel
-//#include <Adafruit_NeoPixel.h> //Más lenta, no la uso ya
-
-
-//Displays TM1637 conectados
-TM1637Display display1(DSPLAY_CLOCK,DISPLAY1_PIN); //CLK, DIO
-TM1637Display display2(DSPLAY_CLOCK,DISPLAY2_PIN); //CLK, DIO
-TM1637Display display3(DSPLAY_CLOCK,DISPLAY3_PIN); //CLK, DIO
-TM1637Display display4(DSPLAY_CLOCK,DISPLAY4_PIN); //CLK, DIO
-TM1637Display display5(DSPLAY_CLOCK,DISPLAY5_PIN); //CLK, DIO
-TM1637Display display6(DSPLAY_CLOCK,DISPLAY6_PIN); //CLK, DIO
 
 //Tiras de led Neopixel conectadas
 CRGB BOMB_NEOPIXEL_STRIP[BOMB_NEOPIXEL_STRIP_LED_COUNT];
 CRGB HEALTH_NEOPIXEL_STRIP[HEALTH_NEOPIXEL_STRIP_LED_COUNT];
 CRGB AMMO_NEOPIXEL_STRIP[AMMO_NEOPIXEL_STRIP_LED_COUNT];
-//Adafruit_NeoPixel BOMB_NEOPIXEL_STRIP = Adafruit_NeoPixel(BOMB_NEOPIXEL_STRIP_LED_COUNT, 10, NEO_GRB + NEO_KHZ800);
-//Adafruit_NeoPixel neopixel2 = Adafruit_NeoPixel(NEOPIXEL2_LED_COUNT, 10, NEO_GRB + NEO_KHZ800);
-//Adafruit_NeoPixel neopixel3 = Adafruit_NeoPixel(NEOPIXEL3_LED_COUNT, 10, NEO_GRB + NEO_KHZ800);
+CRGB ARMOR_NEOPIXEL_STRIP[ARMOR_NEOPIXEL_STRIP_LED_COUNT];
+CRGB ROUND_PERCENT_SCORE_NEOPIXEL_STRIP[ROUND_PERCENT_SCORE_NEOPIXEL_STRIP_LED_COUNT];
 
 //Globales de estado y estadisticas de ronda del jugador
 byte player_state_health;

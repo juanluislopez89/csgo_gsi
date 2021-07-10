@@ -19,7 +19,6 @@ void handle_bomb(){
                 bomb_status = BOMB_STATUS_EXPLODED;
                 bomb_strip_black();
             }
-            
         break;
     }
 }
@@ -84,14 +83,3 @@ void bomb_strip_white(){
     }
     FastLED.show();
 }
-
-//Mostrar el tiempo que queda de la bomba
-void display_bomb_timer(TM1637Display display){
-    if(bomb_status == BOMB_STATUS_PLANTED){
-        display.showNumberDecEx(bomb_seconds_left, 0b11100000, true);
-    }
-    else
-    {
-         display.setSegments(NO_BOMB_DISPLAY_TEXT);
-    }
-}    
