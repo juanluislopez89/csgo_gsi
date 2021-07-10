@@ -361,7 +361,7 @@ def welcome_message():
 #	PLAYER STATE (CURRENT ROUND)
 def send_player_state_packet(packet):
 	arduino.write('p,'+ packet)
-	print(Style.BRIGHT + Fore.CYAN + ' > h,'+ packet)
+	print(Style.BRIGHT + Fore.CYAN + ' > p,'+ packet)
 	response = arduino.read(2)
 	print(Style.BRIGHT + Fore.GREEN + ' < ' + response)
 	return True
