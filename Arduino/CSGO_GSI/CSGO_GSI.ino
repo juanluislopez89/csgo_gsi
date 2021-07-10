@@ -54,16 +54,17 @@ void readSerialData() {
   //p[ weapon_ammo_clip, player_state_health, player_state_armor, player_state_helmet, player_state_flashed, player_state_smoked, player_state_burning, player_state_money, player_state_round_kills, player_state_round_killhs, player_state_equip_value]
   if (command.charAt(0) == 'p') {
     weapon_ammo_clip            = getValue(command, ',',1).toInt();
-    player_state_health         = getValue(command, ',',2).toInt();
-    player_state_armor          = getValue(command, ',',3).toInt();
-    player_state_helmet         = getValue(command, ',',4).toInt();
-    player_state_flashed        = getValue(command, ',',5).toInt();
-    player_state_smoked         = getValue(command, ',',6).toInt();
-    player_state_burning        = getValue(command, ',',7).toInt();
-    player_state_money          = getValue(command, ',',8).toInt();
-    player_state_round_kills    = getValue(command, ',',9).toInt();
-    player_state_round_killhs   = getValue(command, ',',10).toInt();
-    player_state_equip_value    = getValue(command, ',',11).toInt();
+    weapon_ammo_clip_max        = getValue(command, ',',2).toInt();
+    player_state_health         = getValue(command, ',',3).toInt();
+    player_state_armor          = getValue(command, ',',4).toInt();
+    player_state_helmet         = getValue(command, ',',5).toInt();
+    player_state_flashed        = getValue(command, ',',6).toInt();
+    player_state_smoked         = getValue(command, ',',7).toInt();
+    player_state_burning        = getValue(command, ',',8).toInt();
+    player_state_money          = getValue(command, ',',9).toInt();
+    player_state_round_kills    = getValue(command, ',',10).toInt();
+    player_state_round_killhs   = getValue(command, ',',11).toInt();
+    player_state_equip_value    = getValue(command, ',',12).toInt();
 
     Serial.print("OK");
     Serial.flush(); 
@@ -134,7 +135,9 @@ void setup() {
     Serial.begin(115200);
     Serial.setTimeout(3);
 
-    FastLED.addLeds<NEOPIXEL, 10>(BOMB_NEOPIXEL_STRIP, BOMB_NEOPIXEL_STRIP_LED_COUNT);
+    FastLED.addLeds<NEOPIXEL, HEALTH_NEOPIXEL_STRIP_PIN>(HEALTH_NEOPIXEL_STRIP, HEALTH_NEOPIXEL_STRIP_LED_COUNT);
+    FastLED.addLeds<NEOPIXEL, BOMB_NEOPIXEL_STRIP_PIN>(BOMB_NEOPIXEL_STRIP, BOMB_NEOPIXEL_STRIP_LED_COUNT);
+    FastLED.addLeds<NEOPIXEL, AMMO_NEOPIXEL_STRIP_PIN>(AMMO_NEOPIXEL_STRIP, AMMO_NEOPIXEL_STRIP_LED_COUNT);
 
 
     display1.setBrightness(0x0f);
@@ -155,7 +158,10 @@ void loop() {
     display_map_round(display2);
     
     display_player_state_health(display3);
+    display_player_state_health_rgb();
+    
     display_weapon_ammo_clip(display4);
+    display_weapon_ammo_clip_rgb();
     
     display_player_match_stats_kills(display5);
     display_player_match_stats_score(display6);

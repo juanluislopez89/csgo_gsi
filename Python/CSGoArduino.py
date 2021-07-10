@@ -59,6 +59,7 @@ class GsiRequestHandler(BaseHTTPRequestHandler):
 
 	def parse_gsi_json(self, gsi_json):
 		weapon_ammo_clip = self.get_weapon_ammo_clip(gsi_json)
+		weapon_ammo_clip_max = self.get_weapon_ammo_clip_max(gsi_json)
 		player_state_health = self.get_player_state_health(gsi_json)
 		player_state_armor = self.get_player_state_armor(gsi_json)
 		player_state_helmet = int(self.get_player_state_helmet(gsi_json))
@@ -94,6 +95,7 @@ class GsiRequestHandler(BaseHTTPRequestHandler):
 		self.player_state_round_killhs = player_state_round_killhs
 		self.player_state_equip_value = player_state_equip_value
 		self.weapon_ammo_clip = weapon_ammo_clip
+		self.weapon_ammo_clip_max = weapon_ammo_clip_max
 		self.player_match_stats_kills = player_match_stats_kills
 		self.player_match_stats_assists = player_match_stats_assists
 		self.player_match_stats_deaths = player_match_stats_deaths
@@ -109,7 +111,7 @@ class GsiRequestHandler(BaseHTTPRequestHandler):
 		self.map_round = map_round
 			
 		welcome_message()
-		player_state_packet = str(weapon_ammo_clip) + ',' + str(player_state_health) + ',' +str(player_state_armor) + ',' +str(player_state_helmet) + ',' +str(player_state_flashed) + ',' +str(player_state_smoked) + ',' +str(player_state_burning) + ',' +str(player_state_money) + ',' +str(player_state_round_kills) + ',' +str(player_state_round_killhs) + ',' +str(player_state_equip_value)
+		player_state_packet = str(weapon_ammo_clip) + ',' + str(weapon_ammo_clip_max) + ',' + str(player_state_health) + ',' +str(player_state_armor) + ',' +str(player_state_helmet) + ',' +str(player_state_flashed) + ',' +str(player_state_smoked) + ',' +str(player_state_burning) + ',' +str(player_state_money) + ',' +str(player_state_round_kills) + ',' +str(player_state_round_killhs) + ',' +str(player_state_equip_value)
 		send_player_state_packet(player_state_packet)
 
 		round_packet = str(round_phase) + ',' + str(round_bomb) + ',' + str(round_win_team)
@@ -208,6 +210,31 @@ class GsiRequestHandler(BaseHTTPRequestHandler):
 		else:
 			return 0
 
+	def get_weapon_ammo_clip_max(self, gsi_json):
+		if 'player' in gsi_json and 'weapons' in gsi_json['player']:
+			if 'weapon_1' in gsi_json['player']['weapons'] and 'state' in gsi_json['player']['weapons']['weapon_1']:
+				if gsi_json['player']['weapons']['weapon_1']['state'] == 'active':
+					if 'ammo_clip' in gsi_json['player']['weapons']['weapon_1']:
+						return gsi_json['player']['weapons']['weapon_1']['ammo_clip_max']
+					else:
+						return 0;
+			if 'weapon_2' in gsi_json['player']['weapons'] and 'state' in gsi_json['player']['weapons']['weapon_2']:
+				if gsi_json['player']['weapons']['weapon_2']['state'] == 'active':
+					if 'ammo_clip' in gsi_json['player']['weapons']['weapon_2']:
+						return gsi_json['player']['weapons']['weapon_2']['ammo_clip_max']
+					else:
+						return 0;
+			if 'weapon_3' in gsi_json['player']['weapons'] and 'state' in gsi_json['player']['weapons']['weapon_3']:
+				if gsi_json['player']['weapons']['weapon_3']['state'] == 'active':
+					if 'ammo_clip' in gsi_json['player']['weapons']['weapon_3']:
+						return gsi_json['player']['weapons']['weapon_3']['ammo_clip_max']
+					else:
+						return 0;
+			else:
+				return 0
+		else:
+			return 0
+
 	#	PLAYER MATCH STATS
 	def get_player_match_stats_kills(self, gsi_json):
 		try:
@@ -253,7 +280,7 @@ class GsiRequestHandler(BaseHTTPRequestHandler):
 			elif round_phase == 'live':
 				return 'l'
 			else :
-				return n
+				return 'n'
 
 		except KeyError:
 		    return 'n'

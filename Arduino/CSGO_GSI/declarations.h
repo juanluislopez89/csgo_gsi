@@ -1,7 +1,7 @@
 //https://github.com/FastLED/FastLED
 #include <FastLED.h>
 //https://github.com/ArduinoGetStarted/output
-#include <ezOutput.h>
+//#include <ezOutput.h>
 //https://github.com/avishorp/TM1637
 #include <TM1637Display.h>
 //https://github.com/adafruit/Adafruit_NeoPixel
@@ -36,6 +36,7 @@ byte player_state_round_kills;
 byte player_state_round_killhs;
 int player_state_equip_value;
 int weapon_ammo_clip;
+int weapon_ammo_clip_max;
 
 //Globales de estadísticas de partida del jugador
 byte player_match_stats_kills;
