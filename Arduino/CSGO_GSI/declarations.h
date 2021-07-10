@@ -1,8 +1,8 @@
 //https://github.com/FastLED/FastLED
 #include <FastLED.h>
-//https://github.com/ArduinoGetStarted/output
 
 //Tiras de led Neopixel conectadas
+int NEOPIXEL_BRIGHTNESS = 50;
 CRGB BOMB_NEOPIXEL_STRIP[BOMB_NEOPIXEL_STRIP_LED_COUNT];
 CRGB HEALTH_NEOPIXEL_STRIP[HEALTH_NEOPIXEL_STRIP_LED_COUNT];
 CRGB AMMO_NEOPIXEL_STRIP[AMMO_NEOPIXEL_STRIP_LED_COUNT];
