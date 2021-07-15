@@ -1,1 +1,0 @@
-python D:\proyectos_python\csgo_gamestate_integration\Python\CSGoArduino.py
