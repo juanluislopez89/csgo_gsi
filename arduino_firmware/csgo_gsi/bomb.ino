@@ -23,7 +23,7 @@ void handle_bomb(){
     }
 }
 
-//Parpadeo de la bomba en la tira de LED de la bomba
+//Parpadeo de la bomba en la tira LED de la bomba
 void bomb_blink(){
     if(bomb_status == BOMB_STATUS_PLANTED){
         unsigned long curr_millis = millis();
