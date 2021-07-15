@@ -24,11 +24,11 @@ void handle_bomb(){
 }
 
 //Parpadeo de la bomba en la tira LED de la bomba
-void bomb_blink(){
+void display_bomb_status_rgb(){
     if(bomb_status == BOMB_STATUS_PLANTED){
         unsigned long curr_millis = millis();
         unsigned long elapsed_millis = bomb_end_millis - curr_millis;
-
+        //Cuenado queden menos de 3 segundos para la explosión, ponemos la tira en blanco
         if(elapsed_millis < 3000){
             bomb_strip_white();
         }
