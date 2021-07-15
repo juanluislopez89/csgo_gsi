@@ -353,7 +353,7 @@ def welcome_message():
 	os.system('cls')
 	print (Style.BRIGHT + Fore.YELLOW + "************************************************************")
 	print (Style.BRIGHT + Fore.YELLOW + "*                                                          *")
-	print (Style.BRIGHT + Fore.YELLOW + "*             ARDUINO CSGO GAMESTATE INTEGRATION           *")
+	print (Style.BRIGHT + Fore.YELLOW + "*         ARDUINO CSGO GAMESTATE INTEGRATION V1.0          *")
 	print (Style.BRIGHT + Fore.YELLOW + "*                                                          *")
 	print (Style.BRIGHT + Fore.YELLOW + "************************************************************")
 
