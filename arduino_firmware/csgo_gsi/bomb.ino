@@ -1,4 +1,5 @@
-void handle_bomb(){
+//Parpadeo de la bomba en la tira LED de la bomba
+void display_bomb_status_rgb(){
     switch(bomb_status){
         case BOMB_STATUS_NOT_PLANTED:
         
@@ -19,50 +20,46 @@ void handle_bomb(){
                 bomb_status = BOMB_STATUS_EXPLODED;
                 bomb_strip_black();
             }
-        break;
-    }
-}
 
-//Parpadeo de la bomba en la tira LED de la bomba
-void display_bomb_status_rgb(){
-    if(bomb_status == BOMB_STATUS_PLANTED){
-        unsigned long curr_millis = millis();
-        unsigned long elapsed_millis = bomb_end_millis - curr_millis;
-        //Cuenado queden menos de 3 segundos para la explosión, ponemos la tira en blanco
-        if(elapsed_millis < 3000){
-            bomb_strip_white();
-        }
-        else
-        {
-            //Si alcanzamos el final de un ciclo
-            if(curr_millis > bomb_next_beep){
-                //Serial.println("ON");
-                if(!bomb_led_is_on){
-                    bomb_strip_red();
-                    bomb_led_is_on = true;
-                }
-                
-                //Ponemos como ultimo pitido dado, en que acabamos de alcanzar
-                bomb_last_beep = bomb_next_beep;
-                //Calculamos el inicio del siguiente cicleo
-                bomb_next_beep = curr_millis + (0.13*sq(bomb_beep_count)-20*bomb_beep_count+990);
-    
-                bomb_beep_count++;
+            unsigned long curr_millis = millis();
+            unsigned long elapsed_millis = bomb_end_millis - curr_millis;
+            //Cuanddo queden menos de 3 segundos para la explosión, ponemos la tira en blanco
+            if(elapsed_millis < 3000){
+                bomb_strip_white();
             }
-              
-            //Si dentro del beep estamos en el período de encencido
-            else if(curr_millis > bomb_last_beep + bomb_beep_duration){
-                //OFF
-                //Serial.println("OFF");
-                if(bomb_led_is_on == true){
-                    bomb_strip_black();
-                    bomb_led_is_on = false;
+            else
+            {
+                //Si alcanzamos el final de un ciclo
+                if(curr_millis > bomb_next_beep){
+                    //Serial.println("ON");
+                    if(!bomb_led_is_on){
+                        bomb_strip_red();
+                        bomb_led_is_on = true;
+                    }
+                    
+                    //Ponemos como ultimo pitido dado, en que acabamos de alcanzar
+                    bomb_last_beep = bomb_next_beep;
+                    //Calculamos el inicio del siguiente cicleo
+                    bomb_next_beep = curr_millis + (0.13*sq(bomb_beep_count)-20*bomb_beep_count+990);
+        
+                    bomb_beep_count++;
+                }
+                    
+                //Si dentro del beep estamos en el período de encencido
+                else if(curr_millis > bomb_last_beep + bomb_beep_duration){
+                    //OFF
+                    //Serial.println("OFF");
+                    if(bomb_led_is_on == true){
+                        bomb_strip_black();
+                        bomb_led_is_on = false;
+                    }
                 }
             }
-        }
-    }
+         break;
+     }
 }
 
+//Coloca toda la tira de led de la bomba en rojo
 void bomb_strip_red(){
     for (byte n = 0; n < BOMB_NEOPIXEL_STRIP_LED_COUNT; n++){
         BOMB_NEOPIXEL_STRIP[n] = CRGB::Red;
@@ -70,6 +67,7 @@ void bomb_strip_red(){
     FastLED.show();
 }
 
+//Coloca toda la tira de led de la bomba en negro
 void bomb_strip_black(){
     for (byte n = 0; n < BOMB_NEOPIXEL_STRIP_LED_COUNT; n++){
         BOMB_NEOPIXEL_STRIP[n] = CRGB::Black;
@@ -77,6 +75,7 @@ void bomb_strip_black(){
     FastLED.show();
 }
 
+//Coloca toda la tira de led de la bomba en blanco
 void bomb_strip_white(){
     for (byte n = 0; n < BOMB_NEOPIXEL_STRIP_LED_COUNT; n++){
         BOMB_NEOPIXEL_STRIP[n] = CRGB::White;

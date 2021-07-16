@@ -1,5 +1,7 @@
+// Pin del potenciómetro que gestiona el brillo de las tiras de led
 #define NEOPOIXEL_BRIGHTNESS_POTENTIOMETER_PIN A3
 
+// Configuraciones de las tiras de led
 #define BOMB_NEOPIXEL_STRIP_PIN 2
 #define BOMB_NEOPIXEL_STRIP_LED_COUNT 20
 

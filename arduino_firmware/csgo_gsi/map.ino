@@ -1,3 +1,6 @@
+//Función que renderiza el porcentaje derondas ganadas en la tira de rondas ganadas.
+//Se muestra el porcentaje de cada equio de rondas ganadas, de modo que si van ganando CT's un 80% de las rondas
+//Se verá un 80% de la tira encendida en azul(CT) y el otro 20 en amarillo (T).
 void display_round_percent_score(){
     if(map_round > 1){
         //Calculamos el porcentaje de rondas ganadas por CTs
