@@ -182,21 +182,21 @@ void loop() {
     display_round_percent_score();
 
     //Renderizamos los displays
-    display_bomb_timer();
-    display_weapon_ammo_clip();
-    display_player_state_health();
-    display_player_state_armor();
-    display_player_state_helmet();
-    display_player_state_money();
-    display_player_state_round_kills();
-    display_player_state_round_killhs();
-    display_player_state_equip_value();
-    display_player_match_stats_kills();
-    display_player_match_stats_assists();
-    display_player_match_stats_deaths();
-    display_player_match_stats_mvps();
-    display_player_match_stats_score();
-    display_ct_score();
-    display_t_score();
-    display_map_round();
+    //display_bomb_timer();
+    //display_weapon_ammo_clip();
+    //display_player_state_health();
+    //display_player_state_armor();
+    //display_player_state_helmet();
+    //display_player_state_money();
+    //display_player_state_round_kills();
+    //display_player_state_round_killhs();
+    //display_player_state_equip_value();
+    //display_player_match_stats_kills();
+    //display_player_match_stats_assists();
+    //display_player_match_stats_deaths();
+    //display_player_match_stats_mvps();
+    //display_player_match_stats_score();
+    //display_ct_score();
+    //display_t_score();
+    //display_map_round();
 }

@@ -95,10 +95,10 @@ void display_player_state_health_rgb(){
 
 void display_player_state_armor_rgb(){
     //Calculamos la proporcion de leds en funcion de la armadura del jugador con map
-    byte armor_led_count = map(player_state_health,0,100,0,ARMOR_NEOPIXEL_STRIP_LED_COUNT);
+    byte armor_led_count = map(player_state_armor,0,100,0,ARMOR_NEOPIXEL_STRIP_LED_COUNT);
     //Recorremos todos los leds de la tira, pintando de verde los correspondientes a armadura y de negro los vacíos
     for (byte n = 0; n < ARMOR_NEOPIXEL_STRIP_LED_COUNT; n++){
-        n < armor_led_count ?  ARMOR_NEOPIXEL_STRIP[n] = CRGB::Green : ARMOR_NEOPIXEL_STRIP[n] = CRGB::Black;
+        n < armor_led_count ?  ARMOR_NEOPIXEL_STRIP[n] = CRGB::White : ARMOR_NEOPIXEL_STRIP[n] = CRGB::Black;
     }
     FastLED.show();
 }
@@ -127,7 +127,8 @@ void display_round_percent_score(){
         byte ct_led_count = map(ct_percent,0,100,0, ROUND_PERCENT_SCORE_NEOPIXEL_STRIP_LED_COUNT);
         //Recorremos todos los leds de la tira, pintando de azul los correspondientes al porcentaje CT y de amarillo el resto (T)
         for (byte n = 0; n < ROUND_PERCENT_SCORE_NEOPIXEL_STRIP_LED_COUNT; n++){
-            n < ct_led_count ?  ROUND_PERCENT_SCORE_NEOPIXEL_STRIP[n] = CRGB::Blue : ROUND_PERCENT_SCORE_NEOPIXEL_STRIP[n] = CRGB::Yellow;
+            //https://www.color-hex.com/color-palette/22433
+            n < ct_led_count ?  ROUND_PERCENT_SCORE_NEOPIXEL_STRIP[n] = CRGB( 40, 60, 230) : ROUND_PERCENT_SCORE_NEOPIXEL_STRIP[n] =  CRGB( 222, 155, 30);
         }
         FastLED.show();
     }

@@ -1,1 +1,1 @@
-python csgo_gsi_connector.py
+python C:\Users\Dios\Desktop\paizon\csgo_gamestate_integration\python_connector\csgo_gsi_connector.py
