@@ -154,8 +154,7 @@ void loop() {
 
     //Leemos los chunks recibidos por puerto serie
     readSerialData();
-    //Procesamos la lógica de la bomba
-    handle_bomb(); 
+
     //Renderizamos las tiras de led
     display_bomb_status_rgb();
     display_player_state_health_rgb();
