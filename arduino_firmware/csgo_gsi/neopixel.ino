@@ -39,7 +39,7 @@ void display_bomb_status_rgb(){
                     
                     //Ponemos como ultimo pitido dado, en que acabamos de alcanzar
                     bomb_last_beep = bomb_next_beep;
-                    //Calculamos el inicio del siguiente cicleo
+                    //Calculamos el inicio del siguiente ciclo usando el polinomio de este chiflao: http://embryonic.dk/wordpress/?p=867
                     bomb_next_beep = curr_millis + (0.13*sq(bomb_beep_count)-20*bomb_beep_count+990);
         
                     bomb_beep_count++;
