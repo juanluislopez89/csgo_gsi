@@ -9,16 +9,8 @@ void display_bomb_timer(){
     }
 }    
 
-void display_ct_score(){
-     MAP_TEAM_CT_SCORE_DISPLAY.showNumberDecEx(map_team_ct_score);
-}
-
-void display_t_score(){
-     MAP_TEAM_T_SCORE_DISPLAY.showNumberDecEx(map_team_t_score);
-}
-
-void display_map_round(){
-     MAP_ROUND_DISPLAY.showNumberDecEx(map_round);
+void display_weapon_ammo_clip(){
+     WEAPON_AMMO_CLIP_DISPLAY.showNumberDecEx(weapon_ammo_clip);
 }
 
 void display_player_state_health(){
@@ -49,9 +41,6 @@ void display_player_state_equip_value(){
      PLAYER_STATE_EQUIP_VALUE_DISPLAY.showNumberDecEx(player_state_equip_value);
 }
 
-void display_weapon_ammo_clip(){
-     WEAPON_AMMO_CLIP_DISPLAY.showNumberDecEx(weapon_ammo_clip);
-}
 
 void display_player_match_stats_kills(){
      PLAYER_MATCH_STATS_KILLS_DISPLAY.showNumberDecEx(player_match_stats_kills);
@@ -71,4 +60,16 @@ void display_player_match_stats_mvps(){
 
 void display_player_match_stats_score(){
      PLAYER_MATCH_STATS_SCORE_DISPLAY.showNumberDecEx(player_match_stats_score);
+}
+
+void display_ct_score(){
+     MAP_TEAM_CT_SCORE_DISPLAY.showNumberDecEx(map_team_ct_score);
+}
+
+void display_t_score(){
+     MAP_TEAM_T_SCORE_DISPLAY.showNumberDecEx(map_team_t_score);
+}
+
+void display_map_round(){
+     MAP_ROUND_DISPLAY.showNumberDecEx(map_round);
 }
