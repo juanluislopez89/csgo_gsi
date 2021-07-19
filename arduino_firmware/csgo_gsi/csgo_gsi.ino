@@ -16,7 +16,6 @@ unsigned long bomb_end_millis;               //marca temporal de finalización d
 unsigned long bomb_last_beep = 0;           //marca temporal de la ultima vez que se encendió
 unsigned long bomb_next_beep = 0;           //cuando debería ser el siguiente beep
 unsigned long bomb_beep_duration = 15;      //Tiempo que debe estar encendia la tira cada beep
-unsigned int bomb_beep_delay = 16;
 
 boolean bomb_led_is_on = false;
 int bomb_beep_count = 0;  //how many beeps have the bomb emitted
@@ -108,8 +107,12 @@ void readSerialData() {
             bomb_start_millis = millis();
             //Calculamos cuando explotará
             bomb_end_millis = bomb_start_millis + 40000;
-            //Establecemos el delay de parpadeo inicial de la bomba
-            bomb_beep_delay = 1000;
+            //Reiniciamos todas las variables que controlan la bomba, podemos meterlo en una función reset_bomb_status()
+            bomb_last_beep = 0;
+            bomb_next_beep = 0;
+            bomb_beep_duration = 15;
+            bomb_led_is_on = false;
+            bomb_beep_count = 0;
         }
            
     }else if(round_bomb == "d"){
