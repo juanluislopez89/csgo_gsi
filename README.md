@@ -1,5 +1,5 @@
 # CSGO GSI
-
+![](https://media3.giphy.com/media/Qs75BqLW44RrP0x6qL/200.gif)
 ## Requerimientos
 ### Arduino
 Librerías de arduino:
@@ -11,7 +11,7 @@ TM1637 se emplea para la gastión de los displays con chip TM1637
 
 ### Python
 - Python 2.7
-- Librerías inclídas en requirements.txt
+- Librerías includas en requirements.txt
 
 ### Archivo de configuración gamestate_integration
 [gamestate_integration_v1.cfg](https://github.com/juanluislopez89/csgo_gsi/blob/master/gamestate_integration_v1.cfg "gamestate_integration_v1.cfg")
@@ -24,4 +24,3 @@ Para hacerlo funcionar, ejecutar el archivo [csgo_gsi_connector.py](https://gith
 
 El programa detectará la placa Arduino y se empezará a comunicar con ella.
 Funciona en modo competitivo, tanto con bots en local como online contra niños rusos.
-
