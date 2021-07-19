@@ -1,4 +1,4 @@
-#CSGO GSI
+# CSGO GSI
 
 ## Requerimientos
 ### Arduino
