@@ -366,8 +366,9 @@ def welcome_message():
 
 #	PLAYER STATE (CURRENT ROUND)
 def send_player_state_packet(packet):
-    arduino.write('p,' + packet)
+    arduino.write('p,' + packet + '#')
     print(Style.BRIGHT + Fore.CYAN + ' > p,' + packet)
+    time.sleep(0.15)
     response = arduino.read(2)
     print(Style.BRIGHT + Fore.GREEN + ' < ' + response)
     return True
@@ -376,14 +377,16 @@ def send_player_state_packet(packet):
 def send_round_packet(packet):
     arduino.write('r,' + packet)
     print(Style.BRIGHT + Fore.CYAN + ' > r,' + packet)
+    time.sleep(0.15)
     response = arduino.read(2)
     print(Style.BRIGHT + Fore.GREEN + ' < ' + response)
     return True
 
 
 def send_player_match_stats_packet(packet):
-    arduino.write('x,' + packet)
+    arduino.write('x,' + packet )
     print(Style.BRIGHT + Fore.CYAN + ' > x,' + packet)
+    time.sleep(0.15)
     response = arduino.read(2)
     print(Style.BRIGHT + Fore.GREEN + ' < ' + response)
     return True
@@ -392,6 +395,7 @@ def send_player_match_stats_packet(packet):
 def send_map_packet(packet):
     arduino.write('m,' + packet)
     print(Style.BRIGHT + Fore.CYAN + ' > m,' + packet)
+    time.sleep(0.15)
     response = arduino.read(2)
     print(Style.BRIGHT + Fore.GREEN + ' < ' + response)
     return True
@@ -514,7 +518,7 @@ while serial_connected == False:
     arduino_ports = [
         p.device
         for p in serial.tools.list_ports.comports()
-        if 'Arduino' in p.description
+        # if 'Arduino' in p.description
     ]
 
     # Mostramos la cantidad de placas encontradas
@@ -532,7 +536,7 @@ while serial_connected == False:
     # Nos conectamos a la placa seleccionada
     try:
         print (Style.BRIGHT + Fore.CYAN + "Conectando a " + arduino_ports[0])
-        arduino = serial.Serial(arduino_ports[0], 115200, timeout=0.05)
+        arduino = serial.Serial(arduino_ports[0], 250000, timeout=0.2)
         time.sleep(2)
         print (Style.BRIGHT + Fore.GREEN + "Conectado! =)")
         serial_connected = True

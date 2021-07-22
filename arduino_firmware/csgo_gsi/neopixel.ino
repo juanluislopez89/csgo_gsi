@@ -64,7 +64,7 @@ void bomb_strip_red(){
     for (byte n = 0; n < BOMB_NEOPIXEL_STRIP_LED_COUNT; n++){
         BOMB_NEOPIXEL_STRIP[n] = CRGB::Red;
     }
-    FastLED.show();
+    //FastLED.show();
 }
 
 //Coloca toda la tira de led de la bomba en negro
@@ -72,7 +72,7 @@ void bomb_strip_black(){
     for (byte n = 0; n < BOMB_NEOPIXEL_STRIP_LED_COUNT; n++){
         BOMB_NEOPIXEL_STRIP[n] = CRGB::Black;
     }
-    FastLED.show();
+    //FastLED.show();
 }
 
 //Coloca toda la tira de led de la bomba en blanco
@@ -80,7 +80,7 @@ void bomb_strip_white(){
     for (byte n = 0; n < BOMB_NEOPIXEL_STRIP_LED_COUNT; n++){
         BOMB_NEOPIXEL_STRIP[n] = CRGB::White;
     }
-    FastLED.show();
+    //FastLED.show();
 }
 
 void display_player_state_health_rgb(){
@@ -90,7 +90,7 @@ void display_player_state_health_rgb(){
     for (byte n = 0; n < HEALTH_NEOPIXEL_STRIP_LED_COUNT; n++){
         n < health_led_count ?  HEALTH_NEOPIXEL_STRIP[n] = CRGB::Green : HEALTH_NEOPIXEL_STRIP[n] = CRGB::Black;
     }
-    FastLED.show();
+    //FastLED.show();
 }
 
 void display_player_state_armor_rgb(){
@@ -100,7 +100,7 @@ void display_player_state_armor_rgb(){
     for (byte n = 0; n < ARMOR_NEOPIXEL_STRIP_LED_COUNT; n++){
         n < armor_led_count ?  ARMOR_NEOPIXEL_STRIP[n] = CRGB::White : ARMOR_NEOPIXEL_STRIP[n] = CRGB::Black;
     }
-    FastLED.show();
+    //FastLED.show();
 }
 
 void display_weapon_ammo_clip_rgb(){
@@ -112,7 +112,7 @@ void display_weapon_ammo_clip_rgb(){
     for (byte n = 0; n < AMMO_NEOPIXEL_STRIP_LED_COUNT; n++){
         n < ammo_led_count ?  AMMO_NEOPIXEL_STRIP[n] = CRGB::Blue : AMMO_NEOPIXEL_STRIP[n] = CRGB::Black;
     }
-    FastLED.show();
+    //FastLED.show();
 }
 
 //Función que renderiza el porcentaje derondas ganadas en la tira de rondas ganadas.
@@ -130,13 +130,13 @@ void display_round_percent_score(){
             //https://www.color-hex.com/color-palette/22433
             n < ct_led_count ?  ROUND_PERCENT_SCORE_NEOPIXEL_STRIP[n] = CRGB( 40, 60, 230) : ROUND_PERCENT_SCORE_NEOPIXEL_STRIP[n] =  CRGB( 222, 155, 30);
         }
-        FastLED.show();
+        //FastLED.show();
     }
     else
     {
          for (byte n = 0; n < ROUND_PERCENT_SCORE_NEOPIXEL_STRIP_LED_COUNT; n++){
             ROUND_PERCENT_SCORE_NEOPIXEL_STRIP[n] = CRGB::Black;
          }
-         FastLED.show();
+         //FastLED.show();
     } 
 }

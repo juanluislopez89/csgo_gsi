@@ -127,9 +127,9 @@ void readSerialData() {
 
 void setup() {
     // Iniciamos el puerto serie a 115200 de baudrate
-    Serial.begin(115200);
+    Serial.begin(250000);
     // Tiempo de espera del puerto serie para recibir datos (en base al baudrate)
-    Serial.setTimeout(3);
+    Serial.setTimeout(60);
 
     //Creamos la instancia neopixel de la tira LED de SALUD
     FastLED.addLeds<NEOPIXEL, HEALTH_NEOPIXEL_STRIP_PIN>(HEALTH_NEOPIXEL_STRIP, HEALTH_NEOPIXEL_STRIP_LED_COUNT);
@@ -183,6 +183,8 @@ void loop() {
     display_player_state_armor_rgb();
     display_weapon_ammo_clip_rgb();
     display_round_percent_score();
+
+    FastLED.show();
 
     //Renderizamos los displays
     //display_bomb_timer();
