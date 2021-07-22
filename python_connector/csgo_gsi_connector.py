@@ -536,7 +536,7 @@ while serial_connected == False:
     # Nos conectamos a la placa seleccionada
     try:
         print (Style.BRIGHT + Fore.CYAN + "Conectando a " + arduino_ports[0])
-        arduino = serial.Serial(arduino_ports[0], 250000, timeout=0.2)
+        arduino = serial.Serial(arduino_ports[0], 250000, timeout=0.1)
         time.sleep(2)
         print (Style.BRIGHT + Fore.GREEN + "Conectado! =)")
         serial_connected = True

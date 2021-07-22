@@ -129,7 +129,7 @@ void setup() {
     // Iniciamos el puerto serie a 115200 de baudrate
     Serial.begin(250000);
     // Tiempo de espera del puerto serie para recibir datos (en base al baudrate)
-    Serial.setTimeout(60);
+    Serial.setTimeout(100);
 
     //Creamos la instancia neopixel de la tira LED de SALUD
     FastLED.addLeds<NEOPIXEL, HEALTH_NEOPIXEL_STRIP_PIN>(HEALTH_NEOPIXEL_STRIP, HEALTH_NEOPIXEL_STRIP_LED_COUNT);
